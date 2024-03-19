@@ -6,10 +6,11 @@ function volume_sphere(event) {
   // Get references to the form elements
   const radiusInput = document.getElementById("radius");
   const volumeInput = document.getElementById("volume");
-
   // Calculate the volume
   const radius = parseFloat(radiusInput.value); // Ensure numerical value
-  if (isNaN(radius) || radius <= 0) { // Validate radius
+  console.log(typeof radius)
+  if (isNaN(radius) || radius <= 0 || typeof radius !== "number" ) { // Validate radius
+    volumeInput.value = "NaN";
     return;
   }
   const volume = (4 / 3) * Math.PI * Math.pow(radius, 3);
